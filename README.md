@@ -38,7 +38,7 @@ The synthetic dataset is saved as `data/ToyDataWB-3x3.pkl`.
 
 ## 4 Comparison with cyCombine
 
-CLL samples were downloaded from `http://flowrepository.org/id/FR-FCM-Z52G` and unpacked to `FlowRepository_FR-FCM-Z52G_files` folder. `cll_prep.R` was used to apply the pre-processing defined by cyCombine authors, and save relevant columns to .RDS. `train-cycombine-comp.py` contains the script used for training three comparison models (on panel 1, panel 2, and a common batch of the two panels).
+CLL samples were downloaded from `http://flowrepository.org/id/FR-FCM-Z52G`, Van Gassen data samples were downloaded from `https://flowrepository.org/id/FR-FCM-Z247` and processed with cyCombine functions. The processing scripts and resulting .RDS files are available on Zenodo (`https://doi.org/10.5281/zenodo.13854783`). `train-cycombine-comp.py` contains the script used for training the comparison UVAE models.
 
 ## 5 Training data integration models
 
