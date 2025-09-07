@@ -1,4 +1,4 @@
-## UVAE: Integration of Heterogeneous Unpaired Data with Imbalanced Classes
+## UVAE: Integration of Unpaired and Heterogeneous Clinical Flow Cytometry Data
 ### associated codebase.
 
 This repository contains the code used in the paper to extract data, train, and benchmark models.
