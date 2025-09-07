@@ -13,6 +13,7 @@ You will also need the UVAE framework from `https://github.com/mikephn/UVAE` pla
 - [4 Comparison with cyCombine](#4-comparison-with-cyCombine)
 - [5 Training data integration models](#5-training-data-integration-models)
 - [6 Training longitudinal regression models](#6-training-longitudinal-regression-models)
+- [7 Cross-validation models](#7-cross-validation-models)
 
 ## 1 Extracting flow cytometry samples
 
@@ -57,3 +58,7 @@ Two models are trained, one for lineage panels, and one for neutrophils from the
 ## 6 Training longitudinal regression models
 
 `train-severity-reg.py` contains a script for training and evaluating individual regression models. The list of `configs` defines each model configuration, a configuration is selected by providing a variable externally or setting the `config_ind` variable. After training the models, setting `config_ind` to None will aggregate all results into a table. By setting `gradientAttribution` to True, gradients of severity will be collected during prediction for patient IDs defined in `pids_to_plot` (by default, PIDs with number of timesteps >= `plot_min_timesteps`, set to 3 are included).
+
+## 7 Cross-validation models
+
+In addition to models trained on the whole dataset, longitudinal regression models are trained by holding out patient samples from the initial UVAE integration. For each fold, two separate UVAE models are trained (one for lineage, one for chemokine), which first integrate the training data, perform clustering of neutrophils, then project the held out data and clustering labels. The UVAE models are trained using scripts in `crossvalidation/train-lineage-split.py` and `crossvalidation/train-chemo-neutro-split.py` and generate separate embeddings for each fold. `crossvalidation/train-severity-reg-held.py` is then used to train the regression models on the resulting data.
