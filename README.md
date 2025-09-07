@@ -44,6 +44,8 @@ CLL samples were downloaded from `http://flowrepository.org/id/FR-FCM-Z52G`, Van
 
 `cycomb_synth_imp.R` uses cyCombine to impute the missing channels on the synthetic dataset, and `cc_synth_test_scores.py` calculates the imputation MSE, and cLISI/iLISI/EMD/MAD in the data space.
 
+The external datasets (DFCI and van Gassen) are used for additional imputation benchmarking. The process of splitting the datasets and hiding markers is implemented in `prep_imputation_data.R`. cyCombine is run using the `cycomb_synth_imp.R` script. Various UVAE configurations are run with `train-imputation.py`. The metrics are calculated with `imputation_scoring.py`. The full result files are available on Zenodo (`https://doi.org/10.5281/zenodo.13854783`).
+
 ## 5 Training data integration models
 
 Two models are trained, one for lineage panels, and one for neutrophils from the chemokine panel. For both models, a number of the largest panels are first integrated. Hyper-parameters are optimised with the search scores saved to `hyper_lisi.csv`. Then the remaining panels are trained to project on top of the initial latent space.
