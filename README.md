@@ -38,7 +38,11 @@ The synthetic dataset is saved as `data/ToyDataWB-3x3.pkl`.
 
 ## 4 Comparison with cyCombine
 
-CLL samples were downloaded from `http://flowrepository.org/id/FR-FCM-Z52G`, Van Gassen data samples were downloaded from `https://flowrepository.org/id/FR-FCM-Z247` and processed with cyCombine functions. The processing scripts and resulting .RDS files are available on Zenodo (`https://doi.org/10.5281/zenodo.13854783`). `train-cycombine-comp.py` contains the script used for training the comparison UVAE models.
+CLL samples were downloaded from `http://flowrepository.org/id/FR-FCM-Z52G`, Van Gassen data samples were downloaded from `https://flowrepository.org/id/FR-FCM-Z247` and processed with cyCombine functions. The processing scripts and resulting .RDS files are available on Zenodo (`https://doi.org/10.5281/zenodo.13854783`).
+
+`train-uvae-cc-comp-alignment.py` contains the script used for training the UVAE models for EMD/MAD benchmarks on public data.
+
+`cycomb_synth_imp.R` uses cyCombine to impute the missing channels on the synthetic dataset, and `cc_synth_test_scores.py` calculates the imputation MSE, and cLISI/iLISI/EMD/MAD in the data space.
 
 ## 5 Training data integration models
 
