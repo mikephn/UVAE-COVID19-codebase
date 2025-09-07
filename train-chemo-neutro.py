@@ -3,8 +3,9 @@ from src.UVAE import *
 from src.UVAE_diag import *
 from HdfDataset import *
 from src.tools import *
+import pandas as pd
 
-outFolder = ensureFolder('chemo/')
+outFolder = ensureFolder('chemokine/')
 
 # load HDF dataset
 ds = HdfDataset('data/chemo.h5')
